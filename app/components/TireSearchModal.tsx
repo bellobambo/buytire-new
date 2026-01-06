@@ -246,8 +246,7 @@ export default function TireSearchModal() {
 
   if (!isOpen) {
     return (
-      <div className="text-center py-10">
-        <h2 className="text-xl font-bold text-gray-800 mb-3 uppercase">Looking for new tires?</h2>
+      <div className="text-center py-24">
         <button onClick={() => setIsOpen(true)} className="bg-[#02c5f6]  cursor-pointer hover:bg-[#01a2cc] text-white px-8 py-3 rounded-lg font-bold shadow-md">Shop Now</button>
       </div>
     );
