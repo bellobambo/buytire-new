@@ -123,7 +123,7 @@ export default function TireSearchModal() {
     <div className="space-y-3">
       <div className="flex justify-between items-center border-b pb-2 mb-2">
         <h3 className="font-bold text-gray-800 text-sm md:text-base uppercase tracking-wide">Tire Specifications</h3>
-        <button type="button" onClick={() => setIsStaggered(!isStaggered)} className="text-[#02c5f6] hover:underline text-xs font-bold uppercase">
+        <button type="button" onClick={() => setIsStaggered(!isStaggered)} className="text-[#02c5f6]  cursor-pointer hover:underline text-xs font-bold uppercase">
           {isStaggered ? "− Remove Rear" : "+ Add Rear"}
         </button>
       </div>
@@ -248,7 +248,7 @@ export default function TireSearchModal() {
     return (
       <div className="text-center py-10">
         <h2 className="text-xl font-bold text-gray-800 mb-3 uppercase">Looking for new tires?</h2>
-        <button onClick={() => setIsOpen(true)} className="bg-[#02c5f6] hover:bg-[#01a2cc] text-white px-8 py-3 rounded-lg font-bold shadow-md">Shop Now</button>
+        <button onClick={() => setIsOpen(true)} className="bg-[#02c5f6]  cursor-pointer hover:bg-[#01a2cc] text-white px-8 py-3 rounded-lg font-bold shadow-md">Shop Now</button>
       </div>
     );
   }
@@ -256,7 +256,7 @@ export default function TireSearchModal() {
   return (
     <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2">
       <div className="bg-white rounded-xl w-full max-w-3xl relative max-h-[95vh] flex flex-col shadow-2xl">
-        <button onClick={handleClose} className="absolute top-2 right-2 w-8 h-8 bg-[#02c5f6] text-white rounded-full text-xl z-10 flex items-center justify-center">×</button>
+        <button onClick={handleClose} className="absolute  cursor-pointer top-2 right-2 w-8 h-8 bg-[#02c5f6] text-white rounded-full text-xl z-10 flex items-center justify-center">×</button>
 
         <div className="overflow-y-auto">
           {step === "search" && (
@@ -294,7 +294,7 @@ export default function TireSearchModal() {
                 </div>
               </div>
 
-              <button onClick={handleSearch} disabled={loading} className="w-full mt-6 bg-[#02c5f6] text-white py-3 rounded-xl font-bold text-base hover:bg-[#01a2cc] transition-all shadow active:scale-[0.98]">
+              <button onClick={handleSearch} disabled={loading} className="w-full mt-6  cursor-pointer bg-[#02c5f6] text-white py-3 rounded-xl font-bold text-base hover:bg-[#01a2cc] transition-all shadow active:scale-[0.98]">
                 {loading ? "PROCESSING..." : "FIND YOUR TIRES NOW"}
               </button>
             </div>
@@ -304,17 +304,17 @@ export default function TireSearchModal() {
             <div className="p-6 md:p-10 max-w-md mx-auto">
               <h3 className="text-xl font-bold text-gray-800 mb-6 text-center uppercase tracking-tight">Complete Your Request</h3>
               <form onSubmit={handleSubmitLead} className="flex flex-col gap-4">
-                {[{l: "Full Name", p: "John Doe", v: name, s: setName, t: "text"}, {l: "Email Address", p: "john@example.com", v: email, s: setEmail, t: "email"}, {l: "Phone Number", p: "(555) 000-0000", v: phone, s: setPhone, t: "tel"}, {l: "Service Address", p: "123 Tire St, City, State", v: address, s: setAddress, t: "text"}].map((f, i) => (
+                {[{l: "Full Name", p: "John Doe", v: name, s: setName, t: "text"}, {l: "Email Address", p: "john@example.com", v: email, s: setEmail, t: "email"}, {l: "Phone Number", p: "(555) 000-0000", v: phone, s: setPhone, t: "tel"}, {l: "Address", p: "123 Tire St, City, State", v: address, s: setAddress, t: "text"}].map((f, i) => (
                   <div key={i} className="flex flex-col">
                     <label className="text-xs font-bold text-gray-500 px-1 uppercase mb-1">{f.l}</label>
                     <input type={f.t} placeholder={f.p} value={f.v} onChange={(e) => f.s(e.target.value)} required className="w-full border border-gray-200 p-3 rounded-lg text-sm bg-gray-50 focus:bg-white outline-none focus:ring-1 focus:ring-[#02c5f6]" />
                   </div>
                 ))}
                 <div className="mt-4 flex flex-col gap-2">
-                  <button type="submit" disabled={loading} className="w-full bg-[#02c5f6] text-white py-3.5 rounded-xl font-bold text-base hover:bg-[#01a2cc] transition-all">
+                  <button type="submit" disabled={loading} className="w-full cursor-pointer bg-[#02c5f6] text-white py-3.5 rounded-xl font-bold text-base hover:bg-[#01a2cc] transition-all">
                     {loading ? "SENDING..." : "SUBMIT REQUEST"}
                   </button>
-                  <button type="button" onClick={() => setStep("search")} className="w-full text-xs font-bold text-gray-400 uppercase hover:text-gray-600">Back to Search</button>
+                  <button type="button" onClick={() => setStep("search")} className="w-full  cursor-pointer text-xs font-bold text-gray-400 uppercase hover:text-gray-600">Back to Search</button>
                 </div>
               </form>
             </div>
@@ -335,7 +335,7 @@ export default function TireSearchModal() {
                 </div>
               </div>
 
-              <button onClick={handleClose} className="bg-[#02c5f6] text-white py-3 px-12 rounded-xl font-bold text-sm shadow hover:bg-[#01a2cc] transition-all uppercase">
+              <button onClick={handleClose} className="bg-[#02c5f6]  cursor-pointer text-white py-3 px-12 rounded-xl font-bold text-sm shadow hover:bg-[#01a2cc] transition-all uppercase">
                 Done
               </button>
             </div>
