@@ -6,7 +6,7 @@ import { vehicleData, tireAttributeData } from "../data/vehicleData";
 export default function TireSearchModal() {
   // Main states
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState("search"); 
+  const [step, setStep] = useState("search");
   const [loading, setLoading] = useState(false);
 
   // Search form states
@@ -16,6 +16,8 @@ export default function TireSearchModal() {
   const [model, setModel] = useState("");
   const [trim, setTrim] = useState("");
   const [tireSize, setTireSize] = useState("");
+  const [mounted, setMounted] = useState(false);
+
   const [season, setSeason] = useState("All Tires");
 
   // Tire size form states
@@ -50,6 +52,11 @@ export default function TireSearchModal() {
     }
     setYears(yearArray);
   }, []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   // Update models when make changes
   useEffect(() => {
@@ -98,7 +105,7 @@ export default function TireSearchModal() {
     setTimeout(() => { setLoading(false); setStep("customer"); }, 500);
   };
 
-  const handleSubmitLead = async (e : any) => {
+  const handleSubmitLead = async (e: any) => {
     e.preventDefault();
     setLoading(true);
     const finalSeason = searchType === "size" ? mainTireSeason || season : season;
@@ -142,7 +149,7 @@ export default function TireSearchModal() {
             <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Profile</label>
             <select value={frontProfile} onChange={(e) => setFrontProfile(e.target.value)} className="w-full border border-gray-300 rounded px-2 py-1.5 text-sm">
               <option value="">Select</option>
-              {tireAttributeData.profiles.map((p) => ( <option key={p} value={p}>{p}</option>))}
+              {tireAttributeData.profiles.map((p) => (<option key={p} value={p}>{p}</option>))}
             </select>
           </div>
           <div>
@@ -196,20 +203,20 @@ export default function TireSearchModal() {
     <div className="space-y-3">
       <h3 className="font-bold text-gray-800 text-sm md:text-base border-b pb-2 mb-2 tracking-wide uppercase">Vehicle Details</h3>
       <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Year</label>
-            <select value={year} onChange={(e) => setYear(e.target.value)} className="w-full border border-gray-300 rounded px-2 py-1.5 text-sm">
-              <option value="">Year</option>
-              {years.map((y) => (<option key={y} value={y}>{y}</option>))}
-            </select>
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Make</label>
-            <select value={make} onChange={(e) => setMake(e.target.value)} className="w-full border border-gray-300 rounded px-2 py-1.5 text-sm">
-              <option value="">Make</option>
-              {Object.keys(vehicleData).sort().map((m) => (<option key={m} value={m}>{m}</option>))}
-            </select>
-          </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Year</label>
+          <select value={year} onChange={(e) => setYear(e.target.value)} className="w-full border border-gray-300 rounded px-2 py-1.5 text-sm">
+            <option value="">Year</option>
+            {years.map((y) => (<option key={y} value={y}>{y}</option>))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Make</label>
+          <select value={make} onChange={(e) => setMake(e.target.value)} className="w-full border border-gray-300 rounded px-2 py-1.5 text-sm">
+            <option value="">Make</option>
+            {Object.keys(vehicleData).sort().map((m) => (<option key={m} value={m}>{m}</option>))}
+          </select>
+        </div>
       </div>
       <div>
         <label className="block text-xs font-bold text-gray-600 mb-1 uppercase">Model</label>
@@ -246,11 +253,28 @@ export default function TireSearchModal() {
 
   if (!isOpen) {
     return (
-      <div className="text-center py-24">
-        <button onClick={() => setIsOpen(true)} className="bg-[#02c5f6]  cursor-pointer hover:bg-[#01a2cc] text-white px-8 py-3 rounded-lg font-bold shadow-md">Shop Now</button>
+      <div className="flex items-center justify-center py-24">
+        {!mounted ? (
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-10 h-10 border-4 border-[#02c5f6] border-t-transparent rounded-full animate-spin" />
+            <p className="mt-3 text-sm text-gray-500 font-semibold">
+              Loading…
+            </p>
+          </div>
+
+        ) : (
+          /* Button */
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-[#02c5f6] cursor-pointer hover:bg-[#01a2cc] text-white px-8 py-3 rounded-lg font-bold shadow-md"
+          >
+            Shop Now
+          </button>
+        )}
       </div>
     );
   }
+
 
   return (
     <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2">
@@ -270,7 +294,7 @@ export default function TireSearchModal() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">{searchType === "vehicle" ? renderVehicleForm() : renderTireSizeForm()}</div>
-                
+
                 <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-200 rounded-xl p-4 bg-white">
                   {searchType === "vehicle" ? (
                     make && model ? (
@@ -303,7 +327,7 @@ export default function TireSearchModal() {
             <div className="p-6 md:p-10 max-w-md mx-auto">
               <h3 className="text-xl font-bold text-gray-800 mb-6 text-center uppercase tracking-tight">Complete Your Request</h3>
               <form onSubmit={handleSubmitLead} className="flex flex-col gap-4">
-                {[{l: "Full Name", p: "John Doe", v: name, s: setName, t: "text"}, {l: "Email Address", p: "john@example.com", v: email, s: setEmail, t: "email"}, {l: "Phone Number", p: "(555) 000-0000", v: phone, s: setPhone, t: "tel"}, {l: "Address", p: "123 Tire St, City, State", v: address, s: setAddress, t: "text"}].map((f, i) => (
+                {[{ l: "Full Name", p: "John Doe", v: name, s: setName, t: "text" }, { l: "Email Address", p: "john@example.com", v: email, s: setEmail, t: "email" }, { l: "Phone Number", p: "(555) 000-0000", v: phone, s: setPhone, t: "tel" }, { l: "Address", p: "123 Tire St, City, State", v: address, s: setAddress, t: "text" }].map((f, i) => (
                   <div key={i} className="flex flex-col">
                     <label className="text-xs font-bold text-gray-500 px-1 uppercase mb-1">{f.l}</label>
                     <input type={f.t} placeholder={f.p} value={f.v} onChange={(e) => f.s(e.target.value)} required className="w-full border border-gray-200 p-3 rounded-lg text-sm bg-gray-50 focus:bg-white outline-none focus:ring-1 focus:ring-[#02c5f6]" />
@@ -324,7 +348,7 @@ export default function TireSearchModal() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-500 rounded-full text-4xl mb-6">✓</div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">Thank you!</h3>
               <p className="text-gray-600 mb-6">Your request was sent successfully.</p>
-              
+
               <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-8 text-sm text-gray-600 leading-relaxed">
                 For faster service, you may optionally call or text the number below:
                 <div className="mt-2">
