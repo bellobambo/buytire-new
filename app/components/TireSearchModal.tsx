@@ -8,6 +8,8 @@ export default function TireSearchSection() {
   const [step, setStep] = useState("search");
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [imageLoading, setImageLoading] = useState(false);
+
 
   // Search form states
   const [searchType, setSearchType] = useState("vehicle");
@@ -65,7 +67,6 @@ export default function TireSearchSection() {
     setModel(""); setTrim(""); setTireSize(""); setTrims([]); setTireSizes([]); setVehicleImage("");
   }, [make]);
 
-  // Update trims and tire sizes when model changes
   useEffect(() => {
     if (make && model && make in vehicleData) {
       const makeData = vehicleData[make as keyof typeof vehicleData];
@@ -87,10 +88,11 @@ export default function TireSearchSection() {
         })
       );
 
-
+      setImageLoading(true); // 👈 start loading
       setVehicleImage(`/${make} ${model}.png`);
     }
   }, [make, model]);
+
 
   // Generate tire size string for "By Size" search
   useEffect(() => {
@@ -300,11 +302,26 @@ export default function TireSearchSection() {
                 {searchType === "vehicle" ? (
                   make && model && vehicleImage ? (
                     <div className="text-center animate-in zoom-in-95 duration-300">
-                      <img
-                        src={vehicleImage}
-                        alt="Preview"
-                        className="max-h-40 md:max-h-52 object-contain mb-4 drop-shadow-md"
-                      />
+                      <div className="relative flex items-center justify-center min-h-[160px]">
+                        {imageLoading && (
+                          <div className="absolute flex flex-col items-center justify-center">
+                            <div className="w-8 h-8 border-4 border-[#02c5f6] border-t-transparent rounded-full animate-spin" />
+                            <p className="mt-2 text-xs font-bold text-gray-400 uppercase">
+                              Loading preview...
+                            </p>
+                          </div>
+                        )}
+
+                        <img
+                          src={vehicleImage}
+                          alt="Preview"
+                          onLoad={() => setImageLoading(false)}
+                          onError={() => setImageLoading(false)}
+                          className={`max-h-40 md:max-h-52 object-contain mb-4 drop-shadow-md transition-opacity duration-300 ${imageLoading ? "opacity-0" : "opacity-100"
+                            }`}
+                        />
+                      </div>
+
                       <h4 className="font-black text-xl text-gray-800 uppercase italic leading-tight">{make} {model}</h4>
                       <p className="text-gray-500 text-sm font-bold mt-1">{trim}</p>
                     </div>
@@ -324,7 +341,7 @@ export default function TireSearchSection() {
             </div>
 
             <button onClick={handleSearch} disabled={loading} className="w-full mt-8 cursor-pointer bg-[#02c5f6] text-white py-4 rounded-xl font-black text-lg hover:bg-[#01a2cc] transition-all shadow-lg active:scale-[0.98] uppercase tracking-wider">
-              {loading ? "PROCESSING..." : "FIND YOUR TIRES NOW"}
+              {loading ? "PROCESSING..." : "Request Tire Pricing"}
             </button>
           </div>
         )}
