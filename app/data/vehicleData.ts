@@ -273,8 +273,369 @@ export const vehicleData = {
       Bronco: ["255/70R16", "285/70R17", "315/70R17"],
     },
   },
-};
 
+  "Aston Martin": {
+    models: ["DB11", "Vantage", "DBX"],
+    trims: {
+      DB11: ["V8", "V12"],
+      Vantage: ["Base", "AMR"],
+      DBX: ["Base", "707"],
+    },
+    tireSizes: {
+      DB11: ["255/40R20", "295/35R20"],
+      Vantage: ["245/40R20", "295/35R20"],
+      DBX: ["285/40R22", "325/35R22"],
+    },
+  },
+
+  Bentley: {
+    models: ["Bentayga", "Continental GT"],
+    trims: {
+      Bentayga: ["V8", "Speed"],
+      "Continental GT": ["V8", "Speed"],
+    },
+    tireSizes: {
+      Bentayga: ["285/45R21", "285/40R22"],
+      "Continental GT": ["275/35R21", "315/30R21"],
+    },
+  },
+
+  Buick: {
+    models: ["Encore", "Envision", "Enclave"],
+    trims: {
+      Encore: ["Preferred", "GX"],
+      Envision: ["Preferred", "Essence"],
+      Enclave: ["Essence", "Avenir"],
+    },
+    tireSizes: {
+      Encore: ["215/55R18"],
+      Envision: ["225/60R18", "245/45R20"],
+      Enclave: ["255/60R18", "255/55R20"],
+    },
+  },
+
+  Cadillac: {
+    models: ["Escalade", "XT5", "CT5"],
+    trims: {
+      Escalade: ["Luxury", "Premium Luxury", "Sport"],
+      XT5: ["Luxury", "Premium Luxury"],
+      CT5: ["Luxury", "Sport"],
+    },
+    tireSizes: {
+      Escalade: ["275/50R22"],
+      XT5: ["235/65R18", "255/45R20"],
+      CT5: ["245/45R18", "245/40R19"],
+    },
+  },
+
+  Chrysler: {
+    models: ["300", "Pacifica"],
+    trims: {
+      300: ["Touring", "Limited", "S"],
+      Pacifica: ["Touring", "Limited", "Pinnacle"],
+    },
+    tireSizes: {
+      300: ["245/45R20"],
+      Pacifica: ["235/65R17", "245/50R20"],
+    },
+  },
+
+  Dodge: {
+    models: ["Charger", "Challenger", "Durango"],
+    trims: {
+      Charger: ["SXT", "R/T", "Scat Pack"],
+      Challenger: ["SXT", "R/T", "Scat Pack"],
+      Durango: ["SXT", "R/T", "Citadel"],
+    },
+    tireSizes: {
+      Charger: ["245/45R20"],
+      Challenger: ["245/45R20", "275/40R20"],
+      Durango: ["265/50R20"],
+    },
+  },
+
+  Ferrari: {
+    models: ["Roma", "F8", "SF90"],
+    trims: {
+      Roma: ["Base"],
+      F8: ["Tributo"],
+      SF90: ["Stradale"],
+    },
+    tireSizes: {
+      Roma: ["245/35R20", "285/35R20"],
+      F8: ["245/35R20", "305/30R20"],
+      SF90: ["255/35R20", "315/30R20"],
+    },
+  },
+
+  Genesis: {
+    models: ["G70", "G80", "GV80"],
+    trims: {
+      G70: ["Base", "Sport"],
+      G80: ["Base", "Sport"],
+      GV80: ["Advanced", "Prestige"],
+    },
+    tireSizes: {
+      G70: ["225/45R18", "255/35R19"],
+      G80: ["245/45R18", "275/35R20"],
+      GV80: ["265/55R19", "275/45R21"],
+    },
+  },
+
+  GMC: {
+    models: ["Sierra 1500", "Yukon", "Terrain"],
+    trims: {
+      "Sierra 1500": ["Base", "SLT", "Denali"],
+      Yukon: ["SLE", "SLT", "Denali"],
+      Terrain: ["SLE", "SLT"],
+    },
+    tireSizes: {
+      "Sierra 1500": ["265/70R17", "275/60R20"],
+      Yukon: ["265/65R18", "275/50R22"],
+      Terrain: ["225/60R17"],
+    },
+  },
+
+  INEOS: {
+    models: ["Grenadier"],
+    trims: {
+      Grenadier: ["Base", "Fieldmaster", "Trialmaster"],
+    },
+    tireSizes: {
+      Grenadier: ["265/70R17", "275/65R18"],
+    },
+  },
+
+  INFINITI: {
+    models: ["Q50", "QX60"],
+    trims: {
+      Q50: ["Pure", "Luxe", "Red Sport"],
+      QX60: ["Pure", "Luxe"],
+    },
+    tireSizes: {
+      Q50: ["225/55R17", "245/40R19"],
+      QX60: ["235/65R18", "255/50R20"],
+    },
+  },
+
+  Jaguar: {
+    models: ["XE", "XF", "F-Pace"],
+    trims: {
+      XE: ["Base", "R-Dynamic"],
+      XF: ["Base", "R-Dynamic"],
+      "F-Pace": ["Base", "R-Dynamic"],
+    },
+    tireSizes: {
+      XE: ["225/45R18"],
+      XF: ["245/45R18"],
+      "F-Pace": ["255/55R19", "265/40R22"],
+    },
+  },
+
+  Lamborghini: {
+    models: ["Huracan", "Urus"],
+    trims: {
+      Huracan: ["EVO"],
+      Urus: ["Base"],
+    },
+    tireSizes: {
+      Huracan: ["245/30R20", "305/30R20"],
+      Urus: ["285/45R21", "325/40R22"],
+    },
+  },
+
+  "Land Rover": {
+    models: ["Range Rover", "Discovery", "Defender"],
+    trims: {
+      "Range Rover": ["SE", "HSE"],
+      Discovery: ["S", "SE"],
+      Defender: ["S", "X"],
+    },
+    tireSizes: {
+      "Range Rover": ["255/55R20", "285/45R22"],
+      Discovery: ["255/60R19"],
+      Defender: ["255/65R18", "285/45R22"],
+    },
+  },
+
+  Lincoln: {
+    models: ["Navigator", "Aviator"],
+    trims: {
+      Navigator: ["Reserve", "Black Label"],
+      Aviator: ["Reserve", "Grand Touring"],
+    },
+    tireSizes: {
+      Navigator: ["275/55R20", "285/45R22"],
+      Aviator: ["255/55R20"],
+    },
+  },
+
+  Lotus: {
+    models: ["Emira"],
+    trims: {
+      Emira: ["Base"],
+    },
+    tireSizes: {
+      Emira: ["245/35R20", "295/30R20"],
+    },
+  },
+
+  Lucid: {
+    models: ["Air"],
+    trims: {
+      Air: ["Pure", "Touring", "Grand Touring"],
+    },
+    tireSizes: {
+      Air: ["245/45R19", "245/40R20"],
+    },
+  },
+
+  Maserati: {
+    models: ["Ghibli", "Levante"],
+    trims: {
+      Ghibli: ["Base", "Trofeo"],
+      Levante: ["Base", "Trofeo"],
+    },
+    tireSizes: {
+      Ghibli: ["245/40R19", "285/35R19"],
+      Levante: ["265/50R19", "295/45R20"],
+    },
+  },
+
+  Mazda: {
+    models: ["Mazda3", "CX-5", "CX-9"],
+    trims: {
+      Mazda3: ["Base", "Select"],
+      "CX-5": ["Sport", "Touring"],
+      "CX-9": ["Touring", "Grand Touring"],
+    },
+    tireSizes: {
+      Mazda3: ["205/60R16", "215/45R18"],
+      "CX-5": ["225/65R17", "225/55R19"],
+      "CX-9": ["255/60R18", "255/50R20"],
+    },
+  },
+
+  McLaren: {
+    models: ["720S", "Artura"],
+    trims: {
+      "720S": ["Base"],
+      Artura: ["Base"],
+    },
+    tireSizes: {
+      "720S": ["245/35R19", "305/30R20"],
+      Artura: ["245/35R19", "305/30R20"],
+    },
+  },
+
+  Mini: {
+    models: ["Cooper", "Countryman"],
+    trims: {
+      Cooper: ["Base", "S"],
+      Countryman: ["Base", "S"],
+    },
+    tireSizes: {
+      Cooper: ["195/55R16", "205/45R17"],
+      Countryman: ["225/55R18"],
+    },
+  },
+
+  Mitsubishi: {
+    models: ["Outlander", "Eclipse Cross"],
+    trims: {
+      Outlander: ["ES", "SE", "SEL"],
+      "Eclipse Cross": ["ES", "SE"],
+    },
+    tireSizes: {
+      Outlander: ["225/60R18"],
+      "Eclipse Cross": ["225/55R18"],
+    },
+  },
+
+  Polestar: {
+    models: ["Polestar 2"],
+    trims: {
+      "Polestar 2": ["Single Motor", "Dual Motor"],
+    },
+    tireSizes: {
+      "Polestar 2": ["245/45R19", "245/40R20"],
+    },
+  },
+
+  Ram: {
+    models: ["1500"],
+    trims: {
+      "1500": ["Tradesman", "Big Horn", "Laramie"],
+    },
+    tireSizes: {
+      "1500": ["275/65R18", "275/55R20"],
+    },
+  },
+
+  Rivian: {
+    models: ["R1T", "R1S"],
+    trims: {
+      R1T: ["Explore", "Adventure"],
+      R1S: ["Explore", "Adventure"],
+    },
+    tireSizes: {
+      R1T: ["275/65R20", "275/55R21"],
+      R1S: ["275/65R20", "275/55R21"],
+    },
+  },
+
+  "Rolls-Royce": {
+    models: ["Cullinan", "Ghost"],
+    trims: {
+      Cullinan: ["Base"],
+      Ghost: ["Base"],
+    },
+    tireSizes: {
+      Cullinan: ["255/50R21", "285/45R22"],
+      Ghost: ["255/45R20"],
+    },
+  },
+
+  Subaru: {
+    models: ["Outback", "Forester", "Impreza"],
+    trims: {
+      Outback: ["Base", "Limited"],
+      Forester: ["Base", "Sport"],
+      Impreza: ["Base", "Sport"],
+    },
+    tireSizes: {
+      Outback: ["225/65R17", "225/60R18"],
+      Forester: ["225/60R17"],
+      Impreza: ["205/55R16", "225/40R18"],
+    },
+  },
+
+  VinFast: {
+    models: ["VF8", "VF9"],
+    trims: {
+      VF8: ["Eco", "Plus"],
+      VF9: ["Eco", "Plus"],
+    },
+    tireSizes: {
+      VF8: ["255/50R20"],
+      VF9: ["265/45R21"],
+    },
+  },
+
+  Volvo: {
+    models: ["XC60", "XC90", "S60"],
+    trims: {
+      XC60: ["Core", "Plus"],
+      XC90: ["Core", "Ultimate"],
+      S60: ["Core", "Recharge"],
+    },
+    tireSizes: {
+      XC60: ["235/60R18", "255/45R20"],
+      XC90: ["275/45R20", "275/40R21"],
+      S60: ["235/45R18", "235/40R19"],
+    },
+  },
+};
 
 export const tireAttributeData = {
   widths: ["435", "315", "305", "295", "285", "275", "265", "255"],
@@ -316,4 +677,3 @@ export const tireAttributeData = {
   ],
   loadIndexes: Array.from({ length: 250 }, (_, i) => (i + 1).toString()),
 };
-

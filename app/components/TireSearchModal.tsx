@@ -56,7 +56,9 @@ export default function TireSearchSection() {
   // Update models when make changes
   useEffect(() => {
     if (make && make in vehicleData) {
-      setModels(vehicleData[make as keyof typeof vehicleData].models || []);
+      setModels(
+        [...(vehicleData[make as keyof typeof vehicleData].models || [])].sort()
+      );
     } else {
       setModels([]);
     }
@@ -67,8 +69,25 @@ export default function TireSearchSection() {
   useEffect(() => {
     if (make && model && make in vehicleData) {
       const makeData = vehicleData[make as keyof typeof vehicleData];
-      setTrims(makeData.trims?.[model as keyof typeof makeData.trims] || []);
-      setTireSizes(makeData.tireSizes?.[model as keyof typeof makeData.tireSizes] || []);
+
+      setTrims(
+        [...(makeData.trims?.[model as keyof typeof makeData.trims] || [])].sort()
+      );
+
+      const sizes =
+        (makeData.tireSizes?.[
+          model as keyof typeof makeData.tireSizes
+        ] as string[]) || [];
+
+      setTireSizes(
+        [...sizes].sort((a, b) => {
+          const na = a.replace(/\D/g, "");
+          const nb = b.replace(/\D/g, "");
+          return Number(na) - Number(nb);
+        })
+      );
+
+
       setVehicleImage(`/${make} ${model}.png`);
     }
   }, [make, model]);
@@ -291,7 +310,7 @@ export default function TireSearchSection() {
                     </div>
                   ) : (
                     <div className="text-center">
-                    
+
                       <p className="text-gray-400 text-sm font-bold uppercase tracking-widest italic">Select vehicle to preview</p>
                     </div>
                   )
